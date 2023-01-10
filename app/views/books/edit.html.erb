@@ -1,2 +1,12 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<h1>Books datail</h1>
+<% @books.each do |book|%>
+    <tbody>
+    <tr>
+     <td><%=image_tag book.user.get_profile_image(100,100)%></td>
+     <td><%=link_to book.title,user_path(book.user.id)%></td>
+     <td><%=book.body%></td>
+     <td><%= link_to "Edit", edit_book_path( @book.),class: "btn btn-success"%></td>
+     <td><%= link_to "Destroy", book_path( @book), class: "btn btn-danger",method: :delete,"data-confirm" => "本当に消しますか？"%></td>
+     </tr>
+    </tbody>
+    <% end %>

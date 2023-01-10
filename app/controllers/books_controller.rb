@@ -6,7 +6,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @newbook = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
   end
@@ -48,7 +47,7 @@ end
 
   def destroy
    @book = Book.find(params[:id])
-   if @bbok.destroy
+   if @book.destroy
      flash[:notice] = ""
      redirect_to books_path
    end
