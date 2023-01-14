@@ -1,4 +1,21 @@
+<p id"notice"></p>
+
+
+ </ul>
+<div class="container px-5 px-sm-0">
+ <div class="row">
+      
+   <div class="col-md-3">
 <%= render 'users/userinfo', user: @user,book:@book %>
+   </div>
+<div class="col-md-8 offset-md-1">
+    <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+       <% end %>
+    <% end %>
 <h2>Books</h2>
 <table class="table table-hover table-inverse">
 <thead>
@@ -12,9 +29,16 @@
   <% @books.each do |book|%>
     <tbody>
     <tr>
-     <td><%=image_tag book.user.get_profile_image(100,100)%></td>
-     <td><%=link_to book.title,user_path(book.user.id)%></td>
+     <td>
+     <%=link_to user_path(book.user.id) do%>
+     <%=image_tag book.user.get_profile_image(100,100)%>
+     <% end %>
+     </td>
+     <td><%=link_to book.title,book_path(book.id)%></td>
      <td><%=book.body%></td>
     </tbody>
     <% end %>
 </table>
+  </div>
+ </div>
+</div>

@@ -72,6 +72,12 @@
     </div>
     </nav>
   </header>
+  <% if flash[:notice] %>
+      <div class="flash">
+　<%= flash[:notice] %>
+　　　　　　　 </div>
+    <% end %>
+  <p id="notice"></p>
   <%= yield %>
    <footer>
     <dif class="container mt-5">

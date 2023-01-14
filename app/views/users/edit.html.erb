@@ -1,11 +1,31 @@
-<h1>Users infot</h1>
+<p id="notice"></p>
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+       <% end %>
+    <% end %>
+ <div class="container">
+  <div class="row">
+   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<h1>Users info</h1>
 <%= form_with model: @user do |f| %>
-    <label>Name</label>
-      <%= f.text_field :name %>
-      <label>Image</label>
-      <%= f.file_field :profile_image %>
-    <label>Intoroducition</label>
-      <%= f.text_area :introduction %>
-    <%= f.submit "Update User",class: "btn btn-secondary"%>
+    <div class="form-group">
+      <label>Name</label>
+      
+      <p><%= f.text_field :name %></p>
+      </dif>
+      <div class="form-group">
+        <label>Image</label>
+      <p><%= f.file_field :profile_image %></p>
+      </dif>
+     <div class="form-group">
+      <label>Intoroducition</label>
+      <p><%= f.text_area :introduction %></p>
+      </dif>
+    <div class="form-group"><%= f.submit "Update User",class: "btn btn-secondary"%></dif>
   <% end %>
- 
+   </dif>
+  </dif>
+ </dif>
