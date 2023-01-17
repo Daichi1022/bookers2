@@ -14,6 +14,7 @@ def get_profile_image(width, height)
 end
   has_many:books, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :book_comments, dependent: :destroy
   
  validates :name,uniqueness:true, length: { minimum: 2 ,maximum: 20 }
  validates :introduction, length: { maximum: 50 }
